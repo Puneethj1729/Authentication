@@ -13,8 +13,8 @@ const userSchema=new mongoose.Schema({
   email:String,
   password:String
 });
-//const secret='Thesecretistoolonganditisnoteasytodecrypt.';
-//userSchema.plugin(encrypt,{secret:secret,encryptedFields: ['password']});
+const secret='Thesecretistoolonganditisnoteasytodecrypt.';
+userSchema.plugin(encrypt,{secret:secret,encryptedFields: ['password']});
 const User=new mongoose.model('User',userSchema);
 app.get('/',function(req,res){
   res.render('home');
